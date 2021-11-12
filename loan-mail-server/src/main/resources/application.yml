@@ -1,0 +1,27 @@
+app:
+  version: '@project.version@'
+  build:
+    time: '@timestamp@'
+spring:
+  application:
+    name: loan-mail-service  #应用名称
+  mail:
+    # 163
+    host: mail.163.com
+    port: 25
+    username: yourmail@163.com
+    password: yourpassword
+    protocol: smtp
+    default-encoding: UTF-8
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+      mail.smtp.starttls.required: true
+      mail.smtp.socketFactory.port: 465
+      mail.smtp.socketFactory.class: javax.net.ssl.SSLSocketFactory
+      mail.smtp.socketFactory.fallback: false
+server:
+  port: 6001 #应用启动端口
+logging:
+  file:
+    name: ${spring.application.name}_${server.port}.log
